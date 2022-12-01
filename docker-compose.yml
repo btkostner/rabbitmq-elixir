@@ -1,0 +1,14 @@
+version: "3"
+
+services:
+  rabbitmq:
+    image: docker.io/rabbitmq:3.11.4-management
+    environment:
+      - RABBITMQ_DEFAULT_USER=guest
+      - RABBITMQ_DEFAULT_PASS=guest
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    volumes:
+      - "./rabbitmq.conf:/etc/rabbitmq/rabbitmq.conf:ro"
+      - "./definitions.json:/etc/rabbitmq/definitions.json:ro"
